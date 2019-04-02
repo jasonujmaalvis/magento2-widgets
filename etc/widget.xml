@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Alvis Widgets
+ *
+ * @category    Alvis
+ * @package     Alvis_Widgets
+ * @author      Jason Ujma-Alvis
+ * @copyright   Copyright (c) 2019 Jason Ujma-Alvis (https://jason.codes)
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="alvis_example" class="Alvis\Widgets\Block\Widget\Example">
+        <label translate="true">Alvis - Example Fields</label>
+        <description translate="true">A list of example fields</description>
+
+        <parameters>
+            <parameter name="text_field" xsi:type="text" visible="true" required="true">
+                <label translate="true">Text Field</label>
+            </parameter>
+
+            <parameter name="textarea_field" xsi:type="block" visible="true">
+                <label translate="true">Text Area Field</label>
+                <block class="Alvis\Widgets\Block\Adminhtml\Block\Widget\TextArea"/>
+            </parameter>
+
+            <parameter name="select_field_boolean" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Select Field Boolean</label>
+            </parameter>
+
+            <parameter name="select_field_custom" xsi:type="select" visible="true">
+                <label translate="true">Select Field Custom Options</label>
+                <options>
+                    <option name="default" value="one" selected="true">
+                        <label translate="true">Option One</label>
+                    </option>
+                    <option name="item" value="two">
+                        <label translate="true">Option Two</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="select_field_custom_source" xsi:type="select" source_model="Alvis\Widgets\Model\Config\Source\Custom" visible="true">
+                <label translate="true">Select Field Custom Source</label>
+            </parameter>
+
+            <parameter name="depends_field" xsi:type="text" visible="true">
+                <label translate="true">Depends on Field</label>
+                <description>Only shows if the select above has a value of "one".</description>
+                <depends>
+                    <parameter name="select_field_custom_source" value="one" />
+                </depends>
+            </parameter>
+
+            <parameter name="category_chooser" xsi:type="block" visible="true">
+                <label translate="true">Category Chooser</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="product_chooser" xsi:type="block" visible="true">
+                <label translate="true">Product Chooser</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Select Product...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="static_block_chooser" xsi:type="block" visible="true">
+                <label translate="true">Static Block Chooser</label>
+                <block class="Magento\Cms\Block\Adminhtml\Block\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Block...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="page_chooser" xsi:type="block" visible="true">
+                <label translate="true">CMS Page Chooser</label>
+                <block class="Magento\Cms\Block\Adminhtml\Page\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Page...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="image_chooser" xsi:type="block" visible="true">
+                <label translate="true">Image Chooser</label>
+                <block class="Alvis\Widgets\Block\Adminhtml\Block\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="condition_field" xsi:type="conditions" visible="true" class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions Field</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

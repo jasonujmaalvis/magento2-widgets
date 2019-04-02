@@ -1,0 +1,47 @@
+<?php if($text_field = $block->getTextField()): ?>
+    <div>Text field: <?php echo $text_field; ?></div>
+<?php endif; ?>
+
+<?php if($textarea_field = $block->getTextareaField()): ?>
+    <div>Textarea field: <?php echo $textarea_field; ?></div>
+<?php endif; ?>
+
+<?php if($select_field_boolean = $block->getSelectFieldBoolean()): ?>
+    <div>Select field boolean: <?php echo $select_field_boolean; ?></div>
+<?php endif; ?>
+
+<?php if($select_field_custom = $block->getSelectFieldCustom()): ?>
+    <div>Select field custom: <?php echo $select_field_custom; ?></div>
+<?php endif; ?>
+
+<?php if($select_field_custom_source = $block->getSelectFieldCustomSource()): ?>
+    <div>Select field custom source: <?php echo $select_field_custom_source; ?></div>
+<?php endif; ?>
+
+<?php if($depends_field = $block->getDependsField()): ?>
+    <div>Depends on field: <?php echo $depends_field; ?></div>
+<?php endif; ?>
+
+<?php if($category_chooser = $block->getCategoryChooser()): ?>
+    <div>Category chooser: <?php echo $category_chooser; ?></div>
+<?php endif; ?>
+
+<?php if($product_chooser = $block->getProductChooser()): ?>
+    <div>Product chooser: <?php echo $product_chooser; ?></div>
+<?php endif; ?>
+
+<?php if($static_block_chooser = $block->getStaticBlockChooser()): ?>
+    <div>Static block chooser: <?php echo $static_block_chooser; ?></div>
+<?php endif; ?>
+
+<?php if($cms_page_chooser = $block->getPageChooser()): ?>
+    <div>CMS page chooser: <?php echo $cms_page_chooser; ?></div>
+<?php endif; ?>
+
+<?php if($image_chooser = $block->getImageChooser()): ?>
+    <div>Image chooser: <br /><img src="<?php echo $image_chooser; ?>" alt=""></div>
+<?php endif; ?>
+
+<?php if($conditions_encoded = $block->getConditionsEncoded()): ?>
+    <div>Conditions encoded: <?php echo $conditions_encoded; ?></div>
+<?php endif; ?>
